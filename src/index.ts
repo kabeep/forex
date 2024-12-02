@@ -1,5 +1,2 @@
-function greeting() {
-    console.log('Hello World!');
-}
-
-export default greeting;
+export * from './utils';
+export * from './types';
