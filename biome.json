@@ -7,14 +7,14 @@
         "defaultBranch": "master"
     },
     "files": {
-        "ignore": [],
+        "ignore": ["dist"],
         "ignoreUnknown": false
     },
     "formatter": {
         "enabled": true,
         "indentWidth": 4,
         "indentStyle": "space",
-        "lineWidth": 120,
+        "lineWidth": 80,
         "lineEnding": "lf"
     },
     "organizeImports": {
@@ -31,7 +31,7 @@
             "enabled": true,
             "indentWidth": 4,
             "indentStyle": "space",
-            "lineWidth": 120,
+            "lineWidth": 80,
             "lineEnding": "lf",
             "quoteStyle": "single",
             "jsxQuoteStyle": "double",
