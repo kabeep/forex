@@ -270,7 +270,7 @@ client.convert('US', 'HK', 10);
 [npm-url]: https://www.npmjs.com/package/@kabeep/forex
 [codecov-image]: https://img.shields.io/codecov/c/github/kabeep/forex?logo=codecov&color=mediumvioletred
 [codecov-url]: https://codecov.io/gh/kabeep/forex
-[bundle-phobia-image]: https://badgen.net/bundlephobia/minzip/@kabeep/forex
+[bundle-phobia-image]: https://img.shields.io/bundlephobia/minzip/@kabeep/forex
 [bundle-phobia-url]: https://bundlephobia.com/package/@kabeep/forex
 [circleci-image]: https://dl.circleci.com/status-badge/img/gh/kabeep/forex/tree/master.svg?style=shield
 [circleci-url]: https://dl.circleci.com/status-badge/redirect/gh/kabeep/forex/tree/master
