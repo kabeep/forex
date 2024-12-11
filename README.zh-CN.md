@@ -254,7 +254,11 @@ client.convert('US', 'HK', 10);
 
 ## 🏅 致谢
 
-[exchange-api][exchange-api-url] - 如果没有这个，这个包就不会存在。
+- [exchange-api][exchange-api-url] - 如果没有这个，这个包就不会存在。
+
+## 🔗 关联库
+
+- [forex-cli][forex-cli-url] - 💱 用于在终端中转换外汇的 Node.js 库。
 
 ## 🤝 贡献
 
@@ -278,6 +282,7 @@ client.convert('US', 'HK', 10);
 [docs-url]: https://kabeep.github.io/forex/documents/____.html
 [demo-url]: https://kabeep.github.io/forex/documents/demo.html
 [exchange-api-url]: https://github.com/fawazahmed0/exchange-api
+[forex-cli-url]: https://github.com/kabeep/forex-cli
 [issues-url]: https://github.com/kabeep/forex/issues
 [license-image]: https://img.shields.io/github/license/kabeep/forex?color=slateblue
 [license-url]: LICENSE

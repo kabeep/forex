@@ -258,7 +258,11 @@ client.convert('US', 'HK', 10);
 
 ## 🏅 Credits
 
-[exchange-api][exchange-api-url] - This package would not exist without this.
+- [exchange-api][exchange-api-url] - This package would not exist without this.
+
+## 🔗 Related
+
+- [forex-cli][forex-cli-url] - 💱 A Node.js Library to convert foreign exchange in terminal.
 
 ## 🤝 Contribution
 
@@ -282,6 +286,7 @@ This project is licensed under the MIT License. See the [LICENSE][license-url] f
 [docs-url]: https://kabeep.github.io/forex
 [demo-url]: https://kabeep.github.io/forex/documents/demo.html
 [exchange-api-url]: https://github.com/fawazahmed0/exchange-api
+[forex-cli-url]: https://github.com/kabeep/forex-cli
 [issues-url]: https://github.com/kabeep/forex/issues
 [license-image]: https://img.shields.io/github/license/kabeep/forex?color=slateblue
 [license-url]: LICENSE
