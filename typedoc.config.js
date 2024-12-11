@@ -4,6 +4,7 @@ module.exports = {
     sort: ['source-order'],
     projectDocuments: ['./README.*.md', 'LICENSE'],
     navigationLinks: {
+        Demo: 'https://kabeep.github.io/forex/documents/demo.html',
         Docs: 'https://kabeep.github.io/forex/',
         GitHub: 'https://github.com/kabeep/forex',
         NPM: 'https://www.npmjs.com/package/@kabeep/forex',
