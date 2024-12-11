@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="description" content="Online demo for @kabeep/forex">
+    <meta name="keywords" content="kabeep, forex, foreign, exchange, currency, fx">
+    <meta name="author" content="kabeep">
+    <meta name="robots" content="index">
+    <meta
+        name="twitter:image"
+        content="https://opengraph.githubassets.com/3b726c2d498e1b734d0107892b5d23285f8147e40a83a25e28da759f28103e57/kabeep/forex"
+    >
+    <meta name="twitter:site" content="@github">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="kabeep/forex: 💱 A JavaScript foreign exchange library via fawazahmed0's API.">
+    <meta
+        name="twitter:description"
+        content="💱 A JavaScript foreign exchange library via fawazahmed0's API. - kabeep/forex"
+    >
+    <meta property="og:title" content="@kabeep/forex">
+    <meta
+        property="og:description"
+        content="💱 A JavaScript foreign exchange library via fawazahmed0's API. - kabeep/forex"
+    >
+    <meta property="og:url" content="https://github.com/kabeep/forex">
+    <meta
+        property="og:image"
+        content="https://opengraph.githubassets.com/3b726c2d498e1b734d0107892b5d23285f8147e40a83a25e28da759f28103e57/kabeep/forex"
+    >
+    <meta
+        property="og:image:alt"
+        content="💱 A JavaScript foreign exchange library via fawazahmed0's API. - kabeep/forex"
+    >
+    <meta property="og:image:width" content="1088">
+    <meta property="og:image:height" content="896">
+    <title>@kabeep/forex</title>
+    <link
+        rel="shortcut icon"
+        href="https://raw.githubusercontent.com/kabeep/kabeep/refs/heads/master/images/favicon.ico"
+        type="image/x-icon"
+    >
+    <script>
+        function setViewportHeight () {
+            document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight * 0.01}px`);
+        }
+
+        window.addEventListener('resize', setViewportHeight);
+        window.addEventListener('load', setViewportHeight);
+    </script>
+    <link rel="stylesheet" href="../assets/demo-style.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="wrapper">
+                <h1 class="title">
+                    <a href="https://kabeep.github.io/forex/index.html">@kabeep/<span class="primary">forex</span></a>
+                </h1>
+                <nav>
+                    <npm-icon href="https://www.npmjs.com/package/@kabeep/forex"></npm-icon>
+                    <github-icon href="https://github.com/kabeep/forex"></github-icon>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="content">
+            <div class="form-group">
+                <field-select id="base-currency" name="example-select"></field-select>
+                <number-input id="base-amount" placeholder="Base Amount"></number-input>
+            </div>
+            <div class="form-button">
+                <switch-icon></switch-icon>
+            </div>
+            <div class="form-group">
+                <field-select id="dest-currency" name="example-select" value="USD"></field-select>
+                <number-input id="dest-amount" placeholder="Destination Amount"></number-input>
+            </div>
+        </section>
+    </main>
+    <script src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,581 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charset="utf-8"><meta http-equiv="x-ua-compatible" content="IE=edge"><title>简体中文 | @kabeep/forex - v1.0.0-alpha</title><meta name="description" content="Documentation for @kabeep/forex"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../assets/style.css"><link rel="stylesheet" href="../assets/highlight.css"><script defer="" src="../assets/main.js"></script><script async="" src="../assets/icons.js" id="tsd-icons-script"></script><script async="" src="../assets/search.js" id="tsd-search-script"></script><script async="" src="../assets/navigation.js" id="tsd-nav-script"></script><style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-color-primary: #a7d473;
+    --md-sys-color-on-primary: #1e3700;
+    --md-sys-color-primary-container: #2e4f00;
+    --md-sys-color-on-primary-container: #c2f18c;
+    --md-sys-color-secondary: #bfcbad;
+    --md-sys-color-on-secondary: #2a331e;
+    --md-sys-color-secondary-container: #404a33;
+    --md-sys-color-on-secondary-container: #dbe7c8;
+    --md-sys-color-tertiary: #a0d0cc;
+    --md-sys-color-on-tertiary: #003735;
+    --md-sys-color-tertiary-container: #1f4e4b;
+    --md-sys-color-on-tertiary-container: #bbece8;
+    --md-sys-color-error: #ffb4ab;
+    --md-sys-color-on-error: #690005;
+    --md-sys-color-error-container: #93000a;
+    --md-sys-color-on-error-container: #ffb4ab;
+    --md-sys-color-background: #1b1c18;
+    --md-sys-color-on-background: #e3e3db;
+    --md-sys-color-surface: #1b1c18;
+    --md-sys-color-on-surface: #e3e3db;
+    --md-sys-color-surface-variant: #44483d;
+    --md-sys-color-on-surface-variant: #c5c8ba;
+    --md-sys-color-outline: #8e9285;
+    --md-sys-color-outline-variant: #44483d;
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-scrim: #000000;
+    --md-sys-color-inverse-surface: #e3e3db;
+    --md-sys-color-inverse-on-surface: #30312c;
+    --md-sys-color-inverse-primary: #436913;
+    --md-sys-color-surface-dim: #121410;
+    --md-sys-color-surface-bright: #383a35;
+    --md-sys-color-surface-container-lowest: #0d0f0b;
+    --md-sys-color-surface-container-low: #1b1c18;
+    --md-sys-color-surface-container: #1f201c;
+    --md-sys-color-surface-container-high: #292a26;
+    --md-sys-color-surface-container-highest: #343530
+  }
+}
+:root[data-theme="dark"] {
+  --md-sys-color-primary: #a7d473;
+  --md-sys-color-on-primary: #1e3700;
+  --md-sys-color-primary-container: #2e4f00;
+  --md-sys-color-on-primary-container: #c2f18c;
+  --md-sys-color-secondary: #bfcbad;
+  --md-sys-color-on-secondary: #2a331e;
+  --md-sys-color-secondary-container: #404a33;
+  --md-sys-color-on-secondary-container: #dbe7c8;
+  --md-sys-color-tertiary: #a0d0cc;
+  --md-sys-color-on-tertiary: #003735;
+  --md-sys-color-tertiary-container: #1f4e4b;
+  --md-sys-color-on-tertiary-container: #bbece8;
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-error-container: #93000a;
+  --md-sys-color-on-error-container: #ffb4ab;
+  --md-sys-color-background: #1b1c18;
+  --md-sys-color-on-background: #e3e3db;
+  --md-sys-color-surface: #1b1c18;
+  --md-sys-color-on-surface: #e3e3db;
+  --md-sys-color-surface-variant: #44483d;
+  --md-sys-color-on-surface-variant: #c5c8ba;
+  --md-sys-color-outline: #8e9285;
+  --md-sys-color-outline-variant: #44483d;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-inverse-surface: #e3e3db;
+  --md-sys-color-inverse-on-surface: #30312c;
+  --md-sys-color-inverse-primary: #436913;
+  --md-sys-color-surface-dim: #121410;
+  --md-sys-color-surface-bright: #383a35;
+  --md-sys-color-surface-container-lowest: #0d0f0b;
+  --md-sys-color-surface-container-low: #1b1c18;
+  --md-sys-color-surface-container: #1f201c;
+  --md-sys-color-surface-container-high: #292a26;
+  --md-sys-color-surface-container-highest: #343530
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --md-sys-color-primary: #436913;
+    --md-sys-color-on-primary: #ffffff;
+    --md-sys-color-primary-container: #c2f18c;
+    --md-sys-color-on-primary-container: #0f2000;
+    --md-sys-color-secondary: #576249;
+    --md-sys-color-on-secondary: #ffffff;
+    --md-sys-color-secondary-container: #dbe7c8;
+    --md-sys-color-on-secondary-container: #151e0b;
+    --md-sys-color-tertiary: #386663;
+    --md-sys-color-on-tertiary: #ffffff;
+    --md-sys-color-tertiary-container: #bbece8;
+    --md-sys-color-on-tertiary-container: #00201e;
+    --md-sys-color-error: #ba1a1a;
+    --md-sys-color-on-error: #ffffff;
+    --md-sys-color-error-container: #ffdad6;
+    --md-sys-color-on-error-container: #410002;
+    --md-sys-color-background: #fdfcf5;
+    --md-sys-color-on-background: #1b1c18;
+    --md-sys-color-surface: #fdfcf5;
+    --md-sys-color-on-surface: #1b1c18;
+    --md-sys-color-surface-variant: #e1e4d5;
+    --md-sys-color-on-surface-variant: #44483d;
+    --md-sys-color-outline: #75796c;
+    --md-sys-color-outline-variant: #c5c8ba;
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-scrim: #000000;
+    --md-sys-color-inverse-surface: #30312c;
+    --md-sys-color-inverse-on-surface: #f2f1e9;
+    --md-sys-color-inverse-primary: #a7d473;
+    --md-sys-color-surface-dim: #dbdad3;
+    --md-sys-color-surface-bright: #fafaf2;
+    --md-sys-color-surface-container-lowest: #ffffff;
+    --md-sys-color-surface-container-low: #f5f4ec;
+    --md-sys-color-surface-container: #efeee7;
+    --md-sys-color-surface-container-high: #e9e8e1;
+    --md-sys-color-surface-container-highest: #e3e3db
+  }
+}
+:root[data-theme="light"] {
+  --md-sys-color-primary: #436913;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #c2f18c;
+  --md-sys-color-on-primary-container: #0f2000;
+  --md-sys-color-secondary: #576249;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #dbe7c8;
+  --md-sys-color-on-secondary-container: #151e0b;
+  --md-sys-color-tertiary: #386663;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #bbece8;
+  --md-sys-color-on-tertiary-container: #00201e;
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error-container: #410002;
+  --md-sys-color-background: #fdfcf5;
+  --md-sys-color-on-background: #1b1c18;
+  --md-sys-color-surface: #fdfcf5;
+  --md-sys-color-on-surface: #1b1c18;
+  --md-sys-color-surface-variant: #e1e4d5;
+  --md-sys-color-on-surface-variant: #44483d;
+  --md-sys-color-outline: #75796c;
+  --md-sys-color-outline-variant: #c5c8ba;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-inverse-surface: #30312c;
+  --md-sys-color-inverse-on-surface: #f2f1e9;
+  --md-sys-color-inverse-primary: #a7d473;
+  --md-sys-color-surface-dim: #dbdad3;
+  --md-sys-color-surface-bright: #fafaf2;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #f5f4ec;
+  --md-sys-color-surface-container: #efeee7;
+  --md-sys-color-surface-container-high: #e9e8e1;
+  --md-sys-color-surface-container-highest: #e3e3db
+}
+</style><link rel="stylesheet" href="../assets/material-style.css"></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><div class="table-cell" id="tsd-search" data-base=".."><div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="../assets/icons.svg#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"></div><div class="field"><div id="tsd-toolbar-links"><a href="https://kabeep.github.io/zodiac-animals/">Docs</a><a href="https://github.com/kabeep/zodiac-animals">GitHub</a><a href="https://www.npmjs.com/package/@kabeep/zodiac-animals">NPM</a></div></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="../index.html" class="title">@kabeep/forex - v1.0.0-alpha</a></div><div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="../assets/icons.svg#icon-menu"></use></svg></a></div></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><ul class="tsd-breadcrumb"><li><a href="../modules.html">@kabeep/forex</a></li><li><a href="____.html">简体中文</a></li></ul></div><div class="tsd-panel tsd-typography"><div align="center">
+<h1>forex</h1>
+<p>💱 一个 JavaScript 外汇库，通过 <code>fawazahmed0</code> 的 API。</p>
+<p><a href="https://nodejs.org" target="_blank" class="external"><img src="https://img.shields.io/node/v/%40kabeep%2Fforex?color=lightseagreen" alt="NodeJS"></a>
+<a href="LICENSE"><img src="https://img.shields.io/github/license/kabeep/forex?color=slateblue" alt="License"></a>
+<a href="https://www.npmjs.com/package/@kabeep/forex" target="_blank" class="external"><img src="https://img.shields.io/npm/d18m/%40kabeep%2Fforex?color=cornflowerblue" alt="NPM"></a>
+<a href="https://codecov.io/gh/kabeep/forex" target="_blank" class="external"><img src="https://img.shields.io/codecov/c/github/kabeep/forex?logo=codecov&amp;color=mediumvioletred" alt="Codecov"></a>
+<a href="https://bundlephobia.com/package/@kabeep/forex" target="_blank" class="external"><img src="https://badgen.net/bundlephobia/minzip/@kabeep/forex" alt="BundlePhobia"></a>
+<a href="https://dl.circleci.com/status-badge/redirect/gh/kabeep/forex/tree/master" target="_blank" class="external"><img src="https://dl.circleci.com/status-badge/img/gh/kabeep/forex/tree/master.svg?style=shield" alt="CircleCI"></a></p>
+<p><a href="../index.html">English</a> | 简体中文</p>
+<p><img src="https://repobeats.axiom.co/api/embed/1f8180692870dfd0a67e8cd0503bab7fb8f92223.svg" alt="Insights" title="Repobeats analytics image"></p>
+</div>
+<a id="md:📖-简介" class="tsd-anchor"></a><h2 class="tsd-anchor-link">📖 简介<a href="#md:📖-简介" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><blockquote>
+<p><code>forex</code> 全称是 <code>Foreign Exchange</code>，它的目的不是用于 <code>FX</code> 外汇交易，请慎重用于投资相关决策。</p>
+</blockquote>
+<p>在浏览器或终端中获取每日汇率，免费且无速率限制。</p>
+<p>查看 <a href="https://kabeep.github.io/forex/documents/____.html" target="_blank" class="external">文档</a> 或 <a href="https://kabeep.github.io/forex/documents/demo.html" target="_blank" class="external">在线示例</a>。</p>
+<a id="md:⚙️-安装" class="tsd-anchor"></a><h2 class="tsd-anchor-link">⚙️ 安装<a href="#md:⚙️-安装" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span><span class="hl-1"> </span><span class="hl-2">@kabeep/forex</span><span class="hl-1"> </span><span class="hl-3">--save</span>
+</code><button type="button">Copy</button></pre>
+
+<pre><code class="bash"><span class="hl-0">yarn</span><span class="hl-1"> </span><span class="hl-2">add</span><span class="hl-1"> </span><span class="hl-2">@kabeep/forex</span>
+</code><button type="button">Copy</button></pre>
+
+<pre><code class="bash"><span class="hl-0">pnpm</span><span class="hl-1"> </span><span class="hl-2">add</span><span class="hl-1"> </span><span class="hl-2">@kabeep/forex</span>
+</code><button type="button">Copy</button></pre>
+
+<a id="md:🚀-使用" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🚀 使用<a href="#md:🚀-使用" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>CommonJS</p>
+<pre><code class="javascript"><span class="hl-3">const</span><span class="hl-1"> { </span><span class="hl-4">ForexClient</span><span class="hl-1"> } = </span><span class="hl-0">require</span><span class="hl-1">(</span><span class="hl-2">'@kabeep/forex'</span><span class="hl-1">);</span>
+</code><button type="button">Copy</button></pre>
+
+<p>ESModule</p>
+<pre><code class="javascript"><span class="hl-5">import</span><span class="hl-1"> { </span><span class="hl-6">ForexClient</span><span class="hl-1"> } </span><span class="hl-5">from</span><span class="hl-1"> </span><span class="hl-2">'@kabeep/forex'</span><span class="hl-1">;</span>
+</code><button type="button">Copy</button></pre>
+
+<a id="md:函数-getcurrenciesdate-options" class="tsd-anchor"></a><h4 class="tsd-anchor-link">函数: <code>getCurrencies(date, options)</code><a href="#md:函数-getcurrenciesdate-options" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>获取可用的货币列表。</p>
+<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-7">// =&gt; {</span><br><span class="hl-7">//    code: 200,</span><br><span class="hl-7">//    message: 'OK',</span><br><span class="hl-7">//    data: [</span><br><span class="hl-7">//        { code: 'eur', name: 'Euro' },</span><br><span class="hl-7">//        { code: 'usd', name: 'US Dollar' },</span><br><span class="hl-7">//        { code: 'cny', name: 'Chinese Yuan Renminbi' },</span><br><span class="hl-7">//        { code: 'btc', name: 'Bitcoin', }</span><br><span class="hl-7">//        ... More items</span><br><span class="hl-7">//    ]</span><br><span class="hl-7">// }</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getCurrencies</span><span class="hl-1">(</span><span class="hl-2">'latest'</span><span class="hl-1">);</span><br><br><span class="hl-7">// or</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getCurrencies</span><span class="hl-1">(</span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">Date</span><span class="hl-1">(</span><span class="hl-8">2024</span><span class="hl-1">, </span><span class="hl-8">11</span><span class="hl-1">, </span><span class="hl-8">1</span><span class="hl-1">));</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th style="text-align:center">可选</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td><code>Date</code> | <code>"latest"</code></td>
+<td style="text-align:center">true</td>
+<td><code>"latest"</code></td>
+<td>获取货币的日期，或最新的 'latest'</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td><code>RequestInit</code></td>
+<td style="text-align:center">true</td>
+<td><code>{}</code></td>
+<td>自定义请求参数</td>
+</tr>
+</tbody>
+</table>
+<a id="md:返回-promise" class="tsd-anchor"></a><h4 class="tsd-anchor-link">返回: <code>Promise&lt;HttpResponse&lt;AvailableCurrency[]&gt;&gt;</code><a href="#md:返回-promise" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p><strong>结果对象:</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th style="text-align:center">必选</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>number</code></td>
+<td style="text-align:center">true</td>
+<td>HTTP 响应状态代码</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td style="text-align:center">true</td>
+<td>HTTP 响应状态消息</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>AvailableCurrency[]</code></td>
+<td style="text-align:center">false</td>
+<td>可用货币列表</td>
+</tr>
+</tbody>
+</table>
+<p><strong>接口 AvailableCurrency:</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th style="text-align:center">必选</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>string</code></td>
+<td style="text-align:center">true</td>
+<td>货币代码</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td style="text-align:center">false</td>
+<td>货币名称</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<a id="md:函数-getratescode-date-options" class="tsd-anchor"></a><h4 class="tsd-anchor-link">函数: <code>getRates(code, date, options)</code><a href="#md:函数-getratescode-date-options" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>获取指定货币的汇率。</p>
+<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-7">// =&gt; {</span><br><span class="hl-7">//    code: 200,</span><br><span class="hl-7">//    message: 'OK',</span><br><span class="hl-7">//    data: [</span><br><span class="hl-7">//        { code: 'eur', rate: 100_000 },</span><br><span class="hl-7">//        { code: 'usd', rate: 100_000 },</span><br><span class="hl-7">//        { code: 'cny', rate: 100_000 },</span><br><span class="hl-7">//        ... More items</span><br><span class="hl-7">//    ]</span><br><span class="hl-7">// }</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getRates</span><span class="hl-1">(</span><span class="hl-2">'USD'</span><span class="hl-1">);</span><br><br><span class="hl-7">// or</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getRates</span><span class="hl-1">(</span><span class="hl-2">'US'</span><span class="hl-1">);</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th style="text-align:center">可选</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>string</code></td>
+<td style="text-align:center">true</td>
+<td><code>this.options.baseCurrency</code></td>
+<td>用于获取汇率的货币代码或区域代码</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td><code>Date</code> | <code>"latest"</code></td>
+<td style="text-align:center">true</td>
+<td><code>"latest"</code></td>
+<td>获取货币的日期，或最新的 'latest'</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td><code>RequestInit</code></td>
+<td style="text-align:center">true</td>
+<td><code>{}</code></td>
+<td>自定义请求参数</td>
+</tr>
+</tbody>
+</table>
+<a id="md:返回-promise-1" class="tsd-anchor"></a><h4 class="tsd-anchor-link">返回: <code>Promise&lt;HttpResponse&lt;ExchangeRate[]&gt;&gt;</code><a href="#md:返回-promise-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p><strong>结果对象:</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th style="text-align:center">必选</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>number</code></td>
+<td style="text-align:center">true</td>
+<td>HTTP 响应状态代码</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td style="text-align:center">true</td>
+<td>HTTP 响应状态消息</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>ExchangeRate[]</code></td>
+<td style="text-align:center">false</td>
+<td>汇率列表</td>
+</tr>
+</tbody>
+</table>
+<p><strong>接口 ExchangeRate:</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th style="text-align:center">必选</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>string</code></td>
+<td style="text-align:center">true</td>
+<td>货币代码</td>
+</tr>
+<tr>
+<td><code>rate</code></td>
+<td><code>number</code></td>
+<td style="text-align:center">false</td>
+<td>货币汇率</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<a id="md:函数-getratebasecode-destcode-date-options" class="tsd-anchor"></a><h4 class="tsd-anchor-link">函数: <code>getRate(baseCode, destCode, date, options)</code><a href="#md:函数-getratebasecode-destcode-date-options" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>获取两种货币之间的汇率。</p>
+<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-7">// =&gt; {</span><br><span class="hl-7">//    code: 200,</span><br><span class="hl-7">//    message: 'OK',</span><br><span class="hl-7">//    data: 0.94759027</span><br><span class="hl-7">// }</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getRate</span><span class="hl-1">(</span><span class="hl-2">'USD'</span><span class="hl-1">, </span><span class="hl-2">'EUR'</span><span class="hl-1">);</span><br><br><span class="hl-7">// =&gt; {</span><br><span class="hl-7">//    code: 200,</span><br><span class="hl-7">//    message: 'OK',</span><br><span class="hl-7">//    data: 7.78004385</span><br><span class="hl-7">// }</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getRate</span><span class="hl-1">(</span><span class="hl-2">'US'</span><span class="hl-1">, </span><span class="hl-2">'HK'</span><span class="hl-1">);</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th style="text-align:center">可选</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>baseCode</code></td>
+<td><code>string</code></td>
+<td style="text-align:center">true</td>
+<td><code>this.options.baseCurrency</code></td>
+<td>基准货币代码或区域代码</td>
+</tr>
+<tr>
+<td><code>destCode</code></td>
+<td><code>string</code></td>
+<td style="text-align:center">true</td>
+<td>-</td>
+<td>目标货币代码或区域代码</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td><code>Date</code> | <code>"latest"</code></td>
+<td style="text-align:center">true</td>
+<td><code>"latest"</code></td>
+<td>获取货币的日期，或最新的 'latest'</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td><code>RequestInit</code></td>
+<td style="text-align:center">true</td>
+<td><code>{}</code></td>
+<td>自定义请求参数</td>
+</tr>
+</tbody>
+</table>
+<a id="md:返回-promise-2" class="tsd-anchor"></a><h4 class="tsd-anchor-link">返回: <code>Promise&lt;HttpResponse&lt;number&gt;&gt;</code><a href="#md:返回-promise-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p><strong>结果对象:</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th style="text-align:center">必选</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>number</code></td>
+<td style="text-align:center">true</td>
+<td>HTTP 响应状态代码</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td style="text-align:center">true</td>
+<td>HTTP 响应状态消息</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>number</code></td>
+<td style="text-align:center">false</td>
+<td>汇率</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<a id="md:函数-getcodelocalecode" class="tsd-anchor"></a><h4 class="tsd-anchor-link">函数: <code>getCode(localeCode)</code><a href="#md:函数-getcodelocalecode" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>根据 ISO 3166-1 代码获取有效的货币代码。</p>
+<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-7">// =&gt; 'USD'</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getCode</span><span class="hl-1">(</span><span class="hl-2">'US'</span><span class="hl-1">);</span><br><br><span class="hl-7">// =&gt; 'CNH'</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getCode</span><span class="hl-1">(</span><span class="hl-2">'HK'</span><span class="hl-1">);</span><br><br><span class="hl-7">// =&gt; 'CNY'</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getCode</span><span class="hl-1">(</span><span class="hl-2">'RMB'</span><span class="hl-1">);</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th style="text-align:center">可选</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>localeCode</code></td>
+<td><code>string</code></td>
+<td style="text-align:center">false</td>
+<td>-</td>
+<td><code>用于获取货币代码的 ISO 3166-1 代码</code></td>
+</tr>
+</tbody>
+</table>
+<a id="md:返回-string" class="tsd-anchor"></a><h4 class="tsd-anchor-link">返回: <code>string</code><a href="#md:返回-string" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>对应的货币代码。</p>
+<a id="md:函数-convertbasecode-destcode-amount-date-options" class="tsd-anchor"></a><h4 class="tsd-anchor-link">函数: <code>convert(baseCode, destCode, amount, date, options)</code><a href="#md:函数-convertbasecode-destcode-amount-date-options" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>将金额从一种货币转换为另一种货币。</p>
+<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-7">// =&gt; {</span><br><span class="hl-7">//    code: 200,</span><br><span class="hl-7">//    message: 'OK',</span><br><span class="hl-7">//    data: 9.48</span><br><span class="hl-7">// }</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">convert</span><span class="hl-1">(</span><span class="hl-2">'USD'</span><span class="hl-1">, </span><span class="hl-2">'EUR'</span><span class="hl-1">, </span><span class="hl-8">10</span><span class="hl-1">);</span><br><br><span class="hl-7">// =&gt; {</span><br><span class="hl-7">//    code: 200,</span><br><span class="hl-7">//    message: 'OK',</span><br><span class="hl-7">//    data: 72.67</span><br><span class="hl-7">// }</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">convert</span><span class="hl-1">(</span><span class="hl-2">'US'</span><span class="hl-1">, </span><span class="hl-2">'HK'</span><span class="hl-1">, </span><span class="hl-8">10</span><span class="hl-1">);</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th style="text-align:center">可选</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>baseCode</code></td>
+<td><code>string</code></td>
+<td style="text-align:center">true</td>
+<td><code>this.options.baseCurrency</code></td>
+<td>基准货币代码或区域代码</td>
+</tr>
+<tr>
+<td><code>destCode</code></td>
+<td><code>string</code></td>
+<td style="text-align:center">true</td>
+<td>-</td>
+<td>目标货币代码或区域代码</td>
+</tr>
+<tr>
+<td><code>amount</code></td>
+<td><code>number</code></td>
+<td style="text-align:center">true</td>
+<td><code>0</code></td>
+<td>兑换数额</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td><code>Date</code> | <code>"latest"</code></td>
+<td style="text-align:center">true</td>
+<td><code>"latest"</code></td>
+<td>获取货币的日期，或最新的 'latest'</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td><code>RequestInit</code></td>
+<td style="text-align:center">true</td>
+<td><code>{}</code></td>
+<td>自定义请求参数</td>
+</tr>
+</tbody>
+</table>
+<a id="md:返回-promise-3" class="tsd-anchor"></a><h4 class="tsd-anchor-link">返回: <code>Promise&lt;HttpResponse&lt;number&gt;&gt;</code><a href="#md:返回-promise-3" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p><strong>结果对象:</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th style="text-align:center">必选</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>number</code></td>
+<td style="text-align:center">true</td>
+<td>HTTP 响应状态代码</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td style="text-align:center">true</td>
+<td>HTTP 响应状态消息</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>number</code></td>
+<td style="text-align:center">false</td>
+<td>兑换金额</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<a id="md:🏅-致谢" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🏅 致谢<a href="#md:🏅-致谢" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p><a href="https://github.com/fawazahmed0/exchange-api" target="_blank" class="external">exchange-api</a> - 如果没有这个，这个包就不会存在。</p>
+<a id="md:🤝-贡献" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🤝 贡献<a href="#md:🤝-贡献" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>欢迎通过 Pull Requests 或 <a href="https://github.com/kabeep/forex/issues" target="_blank" class="external">Issues</a> 来贡献你的想法和代码。</p>
+<a id="md:📄-许可" class="tsd-anchor"></a><h2 class="tsd-anchor-link">📄 许可<a href="#md:📄-许可" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>本项目采用 MIT 许可证。详情请见 <a href="LICENSE">LICENSE</a> 文件。</p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked=""><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open="" class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#md:📖-简介"><span>📖 简介</span></a><a href="#md:⚙️-安装"><span>⚙️ 安装</span></a><a href="#md:🚀-使用"><span>🚀 使用</span></a><ul><li><ul><li><a href="#md:函数-getcurrenciesdate-options"><span>函数: get<wbr>Currencies(date, options)</span></a></li><li><a href="#md:返回-promise"><span>返回: <wbr>Promise&lt;<wbr>Http<wbr>Response&lt;<wbr>Available<wbr>Currency[]&gt;&gt;</span></a></li><li><a href="#md:函数-getratescode-date-options"><span>函数: get<wbr>Rates(code, date, options)</span></a></li><li><a href="#md:返回-promise-1"><span>返回: <wbr>Promise&lt;<wbr>Http<wbr>Response&lt;<wbr>Exchange<wbr>Rate[]&gt;&gt;</span></a></li><li><a href="#md:函数-getratebasecode-destcode-date-options"><span>函数: get<wbr>Rate(base<wbr>Code, dest<wbr>Code, date, options)</span></a></li><li><a href="#md:返回-promise-2"><span>返回: <wbr>Promise&lt;<wbr>Http<wbr>Response&lt;number&gt;&gt;</span></a></li><li><a href="#md:函数-getcodelocalecode"><span>函数: get<wbr>Code(locale<wbr>Code)</span></a></li><li><a href="#md:返回-string"><span>返回: string</span></a></li><li><a href="#md:函数-convertbasecode-destcode-amount-date-options"><span>函数: convert(base<wbr>Code, dest<wbr>Code, amount, date, options)</span></a></li><li><a href="#md:返回-promise-3"><span>返回: <wbr>Promise&lt;<wbr>Http<wbr>Response&lt;number&gt;&gt;</span></a></li></ul></li></ul><a href="#md:🏅-致谢"><span>🏅 致谢</span></a><a href="#md:🤝-贡献"><span>🤝 贡献</span></a><a href="#md:📄-许可"><span>📄 许可</span></a></div></details></div><div class="site-menu"><nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://kabeep.github.io/zodiac-animals/" class="tsd-nav-link">Docs</a><a href="https://github.com/kabeep/zodiac-animals" class="tsd-nav-link">GitHub</a><a href="https://www.npmjs.com/package/@kabeep/zodiac-animals" class="tsd-nav-link">NPM</a></nav><nav class="tsd-navigation"><a href="../modules.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-1"></use></svg><span>@kabeep/forex</span></a><ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base=".."><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div><script>
+          try {
+            const generateLinkElement = document.querySelector(".tsd-generator a");
+            const link = document.createElement("a");
+            Object.assign(link, {
+              href: "https://github.com/dmnsgn/typedoc-material-theme",
+              target: "_blank",
+              rel: "noreferrer",
+              innerText: "typedoc-material-theme."
+            });
+            generateLinkElement.insertAdjacentElement("afterend", link);
+            generateLinkElement.insertAdjacentText("afterend", " with ");
+          } catch (error) {
+
+          }
+        </script>
+</body></html>
