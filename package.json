@@ -1,7 +1,7 @@
 {
     "name": "@kabeep/forex",
     "description": "A JavaScript foreign exchange library via fawazahmed0's API",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": "./dist/index.cjs",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
@@ -42,7 +42,7 @@
         "build:docs": "npm run build && typedoc && node scripts/build-app.js"
     },
     "author": "Zhang Zixin (kabeep)",
-    "homepage": "https://github.com/kabeep/forex#readme",
+    "homepage": "https://kabeep.github.io/forex/",
     "repository": "git@github.com:kabeep/forex.git",
     "bugs": "https://github.com/kabeep/forex/issue",
     "devDependencies": {
@@ -73,15 +73,11 @@
         "vitest": "^2.1.6"
     },
     "keywords": [
-        "lurna",
-        "date",
-        "utility",
-        "fns",
-        "nodejs",
-        "browser",
-        "农历",
-        "阴历",
-        "公历"
+        "forex",
+        "foreign",
+        "exchange",
+        "currency",
+        "fx"
     ],
     "engines": {
         "node": ">=18"
