@@ -2,13 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { BASE_URL, BASE_URL_VERSION, ForexClient } from '../../src';
 
 describe('ForexClient', () => {
-    const requestHeader = new Headers({
-        'Content-Type': 'application/json; charset=utf-8',
-    });
-
-    const client = new ForexClient({
-        headers: requestHeader,
-    });
+    const client = new ForexClient();
     const prettifyClient = new ForexClient({
         minified: false,
     });
@@ -61,6 +55,9 @@ describe('ForexClient', () => {
         const result = await baseCurrencyClient.convert(undefined, 'CN', 10);
         const expected = createCommonExpected(expect.any(Number));
         expect(result).toStrictEqual(expected);
+        const defaultResult = await baseCurrencyClient.convert(undefined, 'CN');
+        const defaultExpected = createCommonExpected(0);
+        expect(defaultResult).toStrictEqual(defaultExpected);
     });
 
     it('_composeDataList', async () => {
