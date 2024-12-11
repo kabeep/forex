@@ -1,25 +1,22 @@
-import type { HttpResponse } from '../types';
 import HttpRequest from './http-request';
+import type { HttpRequestOptions, HttpResponse } from './types';
 
 class HttpClient extends HttpRequest {
-    constructor(
-        options: { timeout?: number; headers?: Record<string, string> } = {},
-    ) {
+    constructor(options: HttpRequestOptions = {}) {
         super(options);
     }
 
-    async get<T>(
+    protected async get<T>(
         url: string,
         options: RequestInit = {},
-        externalSignal?: AbortSignal,
     ): Promise<HttpResponse<T>> {
-        const request = new Request(url, {
+        const requestOptions = new Request(url, {
             ...options,
             method: 'GET',
             headers: { ...this.headers, ...options.headers },
         });
 
-        return this._fetch<T>(request, externalSignal);
+        return this._fetch<T>(requestOptions);
     }
 }
 

@@ -1,34 +1,38 @@
-import type { HttpResponse } from '../types';
+import type { HttpRequestOptions, HttpResponse } from './types';
 
 class HttpRequest {
     private static TIMEOUT = 5000;
+    private static REQUEST_HEADER: {
+        'Content-Type': 'application/json; charset=utf-8';
+    };
 
     protected readonly timeout: number;
-    protected readonly headers: Record<string, string>;
+    protected readonly headers: HeadersInit;
 
-    constructor(
-        options: { timeout?: number; headers?: Record<string, string> } = {},
-    ) {
-        this.timeout = options.timeout || HttpRequest.TIMEOUT; // 默认超时 10秒
-        this.headers = options.headers || {};
+    constructor(options: HttpRequestOptions = {}) {
+        this.timeout = options.timeout || HttpRequest.TIMEOUT;
+        this.headers = options.headers || HttpRequest.REQUEST_HEADER;
     }
 
     protected async _fetch<T = unknown>(
-        request: Request,
-        externalSignal?: AbortSignal,
+        options: Request,
     ): Promise<HttpResponse<T>> {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), this.timeout);
+        let timeoutId: string | number | NodeJS.Timeout | undefined;
 
-        const signal = externalSignal || controller.signal;
+        const requestHeader = { ...options } as Omit<Request, 'signal'> & {
+            signal?: AbortSignal;
+        };
+        if (!requestHeader.signal) {
+            const controller = new AbortController();
+            requestHeader.signal = controller.signal;
+
+            timeoutId = setTimeout(() => controller.abort(), this.timeout);
+        }
 
         try {
-            const response = await fetch(request.url, {
-                ...request,
-                signal,
-            });
+            const response = await fetch(options.url, requestHeader);
 
-            clearTimeout(timeoutId);
+            timeoutId && clearTimeout(timeoutId);
 
             if (!response.ok) {
                 return this.createResponse<T>(

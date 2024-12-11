@@ -1,5 +1,2 @@
-export interface HttpResponse<T> {
-    code: number;
-    message: string;
-    data?: T;
-}
+export * from './services/types';
+export * from './utils/types';

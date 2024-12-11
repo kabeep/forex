@@ -1,14 +1,16 @@
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
-import { HttpRequest, type HttpResponse } from '../../src';
+import type { HttpResponse } from '../../src';
+import { HttpRequest } from '../../src/utils';
 
 describe('HttpRequest', () => {
-    // @ts-expect-error: TS2503 Cannot find namespace vi
+    // @ts-expect-error TS2503: Cannot find namespace vi
     let fetchMock: vi.Mock;
 
     const url = 'https://example.com/';
     const client: HttpRequest = new HttpRequest();
-    // @ts-expect-error: TS2445 Property _fetch is protected and only accessible within class HttpRequest and its subclasses.
-    const clientFetch = (signal?: AbortSignal) => client._fetch<HttpResponse>(new Request(url), signal);
+    const clientFetch = (options?: RequestInit) =>
+        // @ts-expect-error TS2445: Property _fetch is protected and only accessible within class HttpRequest and its subclasses.
+        client._fetch<HttpResponse>(new Request(url, { ...options }));
 
     beforeAll(() => {
         fetchMock = vi.fn();
@@ -55,7 +57,7 @@ describe('HttpRequest', () => {
         fetchMock.mockRejectedValue(new DOMException('Aborted', 'AbortError'));
 
         try {
-            await clientFetch(controller.signal);
+            await clientFetch({ signal: controller.signal });
         } catch (error) {
             expect((error as Error).message).toBe('Request timeout or aborted');
         }
