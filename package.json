@@ -21,7 +21,9 @@
             "default": "./dist/index.js"
         }
     },
-    "files": ["dist"],
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "prepare": "husky install",
         "lint": "biome check src --write",
@@ -37,7 +39,7 @@
         "build": "npm run build:clean && tsup",
         "build:watch": "tsup --watch",
         "build:stats": "npm run build && cloc src && size-limit dist/index.js",
-        "build:docs": "npm run build && typedoc"
+        "build:docs": "npm run build && typedoc && node scripts/build-app.js"
     },
     "author": "Zhang Zixin (kabeep)",
     "homepage": "https://github.com/kabeep/forex#readme",
@@ -66,10 +68,21 @@
         "typedoc-plugin-missing-exports": "^3.1.0",
         "typedoc-plugin-rename-documents": "^1.0.0",
         "typedoc-plugin-replace-text": "^4.0.0",
+        "typedoc-plugin-version-header": "^1.0.0",
         "typescript": "~5.6.3",
         "vitest": "^2.1.6"
     },
-    "keywords": ["lurna", "date", "utility", "fns", "nodejs", "browser", "农历", "阴历", "公历"],
+    "keywords": [
+        "lurna",
+        "date",
+        "utility",
+        "fns",
+        "nodejs",
+        "browser",
+        "农历",
+        "阴历",
+        "公历"
+    ],
     "engines": {
         "node": ">=18"
     },

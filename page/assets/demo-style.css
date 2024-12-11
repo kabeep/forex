@@ -1,0 +1,184 @@
+:root {
+    --viewport-height: 1vh;
+    --header-height: 3.5rem;
+
+    --header-padding: 0 2rem;
+    --main-padding: 1.5rem 2rem;
+    --main-padding-mobile: 1rem;
+    --navbar-padding: 0 .75rem 0 1.5rem;
+    --navbar-padding-mobile: 0 1.5rem;
+
+    --nav-column-gap: 1rem;
+    --section-content-gap: 1rem;
+    --section-content-form-gap: .5rem;
+
+    --header-title-font-size: 1.5rem;
+    --navbar-icon-font-size: 1.5rem;
+
+    --border-color: #dcdfe6;
+    --background-color: #fff;
+    --anchor-link-color: #666;
+    --anchor-link-hover-color: #333;
+    --input-border-color: rgba(0, 0, 0, .23);
+    --input-hover-border-color: rgba(0, 0, 0, .87);
+    --input-focus-border-color: rgba(102, 0, 235, 1);
+    --input-invalid-border-color: rgba(211, 47, 47, 1);
+    --form-button-background-color: rgba(0, 0, 0, .1);
+    --form-button-hover-background-color: rgba(102, 0, 235, .1);
+
+    --nav-z-index: 12;
+
+    --transition-duration: .3s;
+    --transition-bezier: cubic-bezier(.645, .045, .355, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #0003 transparent;
+}
+
+body {
+    width: 100%;
+    height: calc(var(--viewport-height, 1vh) * 100);
+    background-color: var(--background-color);
+    overflow: auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--nav-z-index);
+}
+
+header .navbar {
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+    height: var(--header-height);
+    padding: var(--navbar-padding);
+    background-image: radial-gradient(transparent 1px, var(--background-color) 1px);
+    background-size: 4px 4px;
+    backdrop-filter: saturate(50%) blur(4px);
+    -webkit-backdrop-filter: saturate(50%) blur(4px);
+    top: 0;
+}
+
+header .navbar .wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    line-height: var(--header-height);
+}
+
+header .navbar .wrapper .title {
+    font-size: var(--header-title-font-size);
+    font-weight: 600;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--nav-column-gap);
+}
+
+main { padding: var(--main-padding); }
+
+main section.content {
+    min-height: 64vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--section-content-gap);
+}
+
+main section.content .form-group {
+    display: flex;
+    gap: var(--section-content-form-gap);
+}
+
+main section.content .form-button {
+    display: flex;
+    background-color: var(--form-button-background-color);
+    border-radius: 8px;
+    transition: var(--transition-duration) var(--transition-bezier);
+}
+
+main section.content .form-button:hover {
+    background-color: var(--form-button-hover-background-color);
+}
+
+a {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    color: var(--anchor-link-color);
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    transition: var(--transition-duration) var(--transition-bezier);
+}
+
+a:hover {
+    color: var(--anchor-link-hover-color);
+}
+
+a .primary {
+    color: var(--anchor-link-hover-color);
+}
+
+@media (max-width: 769px) {
+    header .navbar { padding: var(--navbar-padding-mobile); }
+
+    main section.content .form-group { flex-direction: column; }
+}
+
+@media screen and (min-width: 1280px) {
+    header .navbar { padding: var(--header-padding); }
+
+    main { padding: var(--main-padding-mobile); }
+}
+
+@supports selector(::-webkit-scrollbar) {
+    *::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: none;
+        margin: 4px;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        border: none;
+        background-color: #0003;
+        border-radius: 10px;
+    }
+
+    *::-webkit-scrollbar-thumb:hover,
+    *::-webkit-scrollbar-thumb:active {
+        background-color: #0007;
+    }
+
+    * {
+        scrollbar-width: unset;
+        scrollbar-color: unset;
+    }
+}
+
+.user-select-none {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}

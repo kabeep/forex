@@ -6,55 +6,88 @@ const resolve = (...args: string[]) => pathResolve(__dirname, ...args);
 const palette = (code: number) => (text: string) => `\u001B[${code}m${text}\u001B[39m`;
 const print = (label: string) => (text: string) => console.log(label, text);
 
-export default defineConfig((opts) => ({
-    entry: ['src/index.ts'],
-    format: ['cjs', 'esm'],
-    target: ['es2015'],
-    outDir: 'dist',
-    bundle: true,
-    clean: !opts.watch,
-    minify: false,
-    treeshake: false,
-    sourcemap: false,
-    splitting: false,
-    cjsInterop: true,
-    legacyOutput: false,
-    replaceNodeEnv: true,
-    dts: true,
-    outExtension({ format }) {
-        switch (format) {
-            case 'cjs':
-                return { js: '.cjs', dts: '.d.ts' };
-            case 'esm':
-                return { js: '.mjs', dts: '.d.ts' };
-            default:
-                return { js: '.js', dts: '.d.ts' };
+export default defineConfig((opts) => [
+    {
+        entry: ['src/index.ts'],
+        format: ['cjs', 'esm'],
+        target: ['es2015'],
+        outDir: 'dist',
+        bundle: true,
+        clean: !opts.watch,
+        minify: false,
+        treeshake: false,
+        sourcemap: false,
+        splitting: false,
+        cjsInterop: true,
+        legacyOutput: false,
+        replaceNodeEnv: true,
+        dts: true,
+        outExtension({ format }) {
+            switch (format) {
+                case 'cjs':
+                    return { js: '.cjs', dts: '.d.ts' };
+                case 'esm':
+                    return { js: '.mjs', dts: '.d.ts' };
+                default:
+                    return { js: '.js', dts: '.d.ts' };
+            }
+        },
+        async onSuccess() {
+            const magenta = palette(35);
+            const label = magenta('HOOK');
+            const log = print(label);
+
+            // This is to be compatible with both CommonJS and ESM in Node.js and browsers.
+            const srcMjsFilePath = 'dist/index.mjs';
+            const destJsFilePath = 'dist/index.js';
+            copy(resolve(srcMjsFilePath), resolve(destJsFilePath));
+            log(`cp ${magenta(srcMjsFilePath)} to ${magenta(destJsFilePath)}`);
+
+            if (opts.watch) return;
+
+            // The `tsup` will emit separate d.ts and d.mts declarations starting from version 8.0.1,
+            // but this package does not need it currently. It will only increase the package size.
+            // See https://github.com/egoist/tsup/pull/934
+            const srcMtsFile = 'dist/index.d.mts';
+            const srcMtsFilePath = resolve(srcMtsFile);
+            const isExists = await wait(srcMtsFilePath);
+            if (!isExists) return;
+            remove(srcMtsFilePath);
+            log(`rm ${magenta(srcMtsFile)}`);
+        },
+    },
+    {
+        entry: ['page/app.js'],
+        format: 'iife',
+        target: ['es2015'],
+        outDir: 'build',
+        bundle: true,
+        clean: !opts.watch,
+        minify: true,
+        treeshake: true,
+        sourcemap: true,
+        splitting: false,
+        cjsInterop: false,
+        outExtension() {
+            return { js: '.js' };
+        },
+        async onSuccess() {
+            const magenta = palette(35);
+            const label = magenta('HOOK');
+            const log = print(label);
+
+            const srcStyleFilePath = 'page/assets/demo-style.css';
+            const destStyleFilePath = 'build/demo-style.css';
+            copy(resolve(srcStyleFilePath), resolve(destStyleFilePath));
+            log(`cp ${magenta(srcStyleFilePath)} to ${magenta(destStyleFilePath)}`);
+
+            const srcHtmlFilePath = 'page/index.html';
+            const destHtmlFilePath = 'build/index.html';
+            copy(resolve(srcHtmlFilePath), resolve(destHtmlFilePath));
+            log(`cp ${magenta(srcHtmlFilePath)} to ${magenta(destHtmlFilePath)}`);
         }
-    },
-    async onSuccess() {
-        const magenta = palette(35);
-        const label = magenta('HOOK');
-        const log = print(label);
-
-        // This is to be compatible with both CommonJS and ESM in Node.js and browsers.
-        const srcMjsFilePath = 'dist/index.mjs';
-        const destJsFilePath = 'dist/index.js';
-        copy(resolve(srcMjsFilePath), resolve(destJsFilePath));
-        log(`cp ${magenta(srcMjsFilePath)} to ${magenta(destJsFilePath)}`);
-
-        if (opts.watch) return;
-
-        // The `tsup` will emit separate d.ts and d.mts declarations starting from version 8.0.1,
-        // but this package does not need it currently. It will only increase the package size.
-        // See https://github.com/egoist/tsup/pull/934
-        const srcMtsFile = 'dist/index.d.mts';
-        const srcMtsFilePath = resolve(srcMtsFile);
-        const isExists = await wait(srcMtsFilePath);
-        if (!isExists) return;
-        remove(srcMtsFilePath);
-        log(`rm ${magenta(srcMtsFile)}`);
-    },
-}));
+    }
+]);
 
 function sleep(interval: number) {
     return new Promise<void>((res) => {
