@@ -25,15 +25,236 @@ English | [简体中文][zh-cn-url]
 
 Get daily exchange rates in the browser or terminal for free and without rate limits.
 
-See [documentation][docs-url].
+See [documentation][docs-url] or [demo][demo-url].
 
 ## ⚙️ Installation
 
-> WIP
+```bash
+npm install @kabeep/forex --save
+```
+
+```bash
+yarn add @kabeep/forex
+```
+
+```bash
+pnpm add @kabeep/forex
+```
 
 ## 🚀 Usage
 
-> WIP
+#### CommonJS
+
+```javascript
+const { ForexClient } = require('@kabeep/forex');
+```
+
+#### ESModule
+
+```javascript
+import { ForexClient } from '@kabeep/forex';
+```
+
+---
+
+#### Methods: `getCurrencies(date, options)`
+
+Fetches the list of available currencies.
+
+```typescript
+const client = new ForexClient();
+// => {
+//    code: 200,
+//    message: 'OK',
+//    data: [
+//        { code: 'eur', name: 'Euro' },
+//        { code: 'usd', name: 'US Dollar' },
+//        { code: 'cny', name: 'Chinese Yuan Renminbi' },
+//        { code: 'btc', name: 'Bitcoin', }
+//        ... More items
+//    ]
+// }
+client.getCurrencies('latest');
+
+// or
+client.getCurrencies(new Date(2024, 11, 1));
+```
+
+| Parameter | Type                 | Optional | Default    | Description                                                         |
+|-----------|----------------------|:--------:|------------|---------------------------------------------------------------------|
+| `date`    | `Date` \| `"latest"` |   true   | `"latest"` | The date for fetching currencies, or `"latest"` for the most recent |
+| `options` | `RequestInit`        |   true   | `{}`       | Additional request options                                          |
+
+#### Returns: `Promise<HttpResponse<AvailableCurrency[]>>`
+
+**Result Object:**
+
+| Key       | Type                  | Required | Description                   |
+|-----------|-----------------------|:--------:|-------------------------------|
+| `code`    | `number`              |   true   | HTTP response status codes    |
+| `message` | `string`              |   true   | HTTP response status messages |
+| `data`    | `AvailableCurrency[]` |  false   | List of available currency    |
+
+**interface AvailableCurrency:**
+
+| Key    | Type     | Required | Description      |
+|--------|----------|:--------:|------------------|
+| `code` | `string` |   true   | Code of currency |
+| `name` | `string` |  false   | Name of currency |
+
+---
+
+#### Methods: `getRates(code, date, options)`
+
+Fetches the exchange rates for a specific currency.
+
+```typescript
+const client = new ForexClient();
+// => {
+//    code: 200,
+//    message: 'OK',
+//    data: [
+//        { code: 'eur', rate: 100_000 },
+//        { code: 'usd', rate: 100_000 },
+//        { code: 'cny', rate: 100_000 },
+//        ... More items
+//    ]
+// }
+client.getRates('USD');
+
+// or
+client.getRates('US');
+```
+
+| Parameter | Type                 | Optional | Default                     | Description                                                         |
+|-----------|----------------------|:--------:|-----------------------------|---------------------------------------------------------------------|
+| `code`    | `string`             |   true   | `this.options.baseCurrency` | The currency code or locale code to get rates for                   |
+| `date`    | `Date` \| `"latest"` |   true   | `"latest"`                  | The date for fetching currencies, or `"latest"` for the most recent |
+| `options` | `RequestInit`        |   true   | `{}`                        | Additional request options                                          |
+
+#### Returns: `Promise<HttpResponse<ExchangeRate[]>>`
+
+**Result Object:**
+
+| Key       | Type             | Required | Description                   |
+|-----------|------------------|:--------:|-------------------------------|
+| `code`    | `number`         |   true   | HTTP response status codes    |
+| `message` | `string`         |   true   | HTTP response status messages |
+| `data`    | `ExchangeRate[]` |  false   | List of exchange rates        |
+
+**interface ExchangeRate:**
+
+| Key    | Type     | Required | Description      |
+|--------|----------|:--------:|------------------|
+| `code` | `string` |   true   | Code of currency |
+| `rate` | `number` |  false   | Rate of currency |
+
+---
+
+#### Methods: `getRate(baseCode, destCode, date, options)`
+
+Fetches the exchange rate between two currencies.
+
+```typescript
+const client = new ForexClient();
+// => {
+//    code: 200,
+//    message: 'OK',
+//    data: 0.94759027
+// }
+client.getRate('USD', 'EUR');
+
+// => {
+//    code: 200,
+//    message: 'OK',
+//    data: 7.78004385
+// }
+client.getRate('US', 'HK');
+```
+
+| Parameter  | Type                 | Optional | Default                     | Description                                                         |
+|------------|----------------------|:--------:|-----------------------------|---------------------------------------------------------------------|
+| `baseCode` | `string`             |   true   | `this.options.baseCurrency` | The base currency code or locale code                               |
+| `destCode` | `string`             |   true   | -                           | The destination currency code or locale code                        |
+| `date`     | `Date` \| `"latest"` |   true   | `"latest"`                  | The date for fetching currencies, or `"latest"` for the most recent |
+| `options`  | `RequestInit`        |   true   | `{}`                        | Additional request options                                          |
+
+#### Returns: `Promise<HttpResponse<number>>`
+
+**Result Object:**
+
+| Key       | Type     | Required | Description                   |
+|-----------|----------|:--------:|-------------------------------|
+| `code`    | `number` |   true   | HTTP response status codes    |
+| `message` | `string` |   true   | HTTP response status messages |
+| `data`    | `number` |  false   | The exchange rate             |
+
+---
+
+#### Methods: `getCode(localeCode)`
+
+Get a valid currency code based on ISO 3166-1 code.
+
+```typescript
+const client = new ForexClient();
+// => 'USD'
+client.getCode('US');
+
+// => 'CNH'
+client.getCode('HK');
+
+// => 'CNY'
+client.getCode('RMB');
+```
+
+| Parameter    | Type     | Optional | Default | Description                              |
+|--------------|----------|:--------:|---------|------------------------------------------|
+| `localeCode` | `string` |  false   | -       | The locale code to get currency code for |
+
+#### Returns: `string`
+
+The corresponding currency code.
+
+#### Methods: `convert(baseCode, destCode, amount, date, options)`
+
+Converts an amount from one currency to another.
+
+```typescript
+const client = new ForexClient();
+// => {
+//    code: 200,
+//    message: 'OK',
+//    data: 9.48
+// }
+client.convert('USD', 'EUR', 10);
+
+// => {
+//    code: 200,
+//    message: 'OK',
+//    data: 72.67
+// }
+client.convert('US', 'HK', 10);
+```
+
+| Parameter  | Type                 | Optional | Default                     | Description                                                         |
+|------------|----------------------|:--------:|-----------------------------|---------------------------------------------------------------------|
+| `baseCode` | `string`             |   true   | `this.options.baseCurrency` | The base currency code or locale code                               |
+| `destCode` | `string`             |   true   | -                           | The destination currency code or locale code                        |
+| `amount`   | `number`             |   true   | `0`                         | The amount to convert                                               |
+| `date`     | `Date` \| `"latest"` |   true   | `"latest"`                  | The date for fetching currencies, or `"latest"` for the most recent |
+| `options`  | `RequestInit`        |   true   | `{}`                        | Additional request options                                          |
+
+#### Returns: `Promise<HttpResponse<number>>`
+
+**Result Object:**
+
+| Key       | Type     | Required | Description                   |
+|-----------|----------|:--------:|-------------------------------|
+| `code`    | `number` |   true   | HTTP response status codes    |
+| `message` | `string` |   true   | HTTP response status messages |
+| `data`    | `number` |  false   | The converted amount          |
+
+---
 
 ## 🏅 Credits
 
@@ -59,6 +280,7 @@ This project is licensed under the MIT License. See the [LICENSE][license-url] f
 [circleci-url]: https://dl.circleci.com/status-badge/redirect/gh/kabeep/forex/tree/master
 [insights-url]: https://repobeats.axiom.co/api/embed/1f8180692870dfd0a67e8cd0503bab7fb8f92223.svg "Repobeats analytics image"
 [docs-url]: https://kabeep.github.io/forex
+[demo-url]: https://kabeep.github.io/forex/documents/demo.html
 [exchange-api-url]: https://github.com/fawazahmed0/exchange-api
 [issues-url]: https://github.com/kabeep/forex/issues
 [license-image]: https://img.shields.io/github/license/kabeep/forex?color=slateblue
