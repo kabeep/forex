@@ -46,7 +46,7 @@ class ForexClient extends HttpClient {
      * Fetches the list of available currencies
      * @param {Date | "latest"} [date="latest"] - The date for fetching currencies, or `"latest"` for the most recent
      * @param {RequestInit} [options={}] - Additional request options
-     * @returns A list of available currencies
+     * @returns {Promise<HttpResponse<AvailableCurrency[]>>} A list of available currencies
      *
      * @example
      * // => {
@@ -55,8 +55,8 @@ class ForexClient extends HttpClient {
      * //    data: [
      * //        { code: 'eur', name: 'Euro' },
      * //        { code: 'usd', name: 'US Dollar' },
-     * //         { code: 'cny', name: 'Chinese Yuan Renminbi' },
-     * //         ... More items
+     * //        { code: 'cny', name: 'Chinese Yuan Renminbi' },
+     * //        ... More items
      * //    ]
      * // }
      * new ForexClient().getCurrencies('latest');
@@ -78,10 +78,10 @@ class ForexClient extends HttpClient {
 
     /**
      * Fetches the exchange rates for a specific currency
-     * @param {string | undefined} [code=this.options.baseCurrency] - The currency code to get rates for
+     * @param {string | undefined} [code=this.options.baseCurrency] - The currency code or locale code to get rates for
      * @param {Date | "latest"} [date="latest"] - The date for the rates, or `'latest'` for the most recent
      * @param {RequestInit} [options={}] - Additional request options
-     * @returns A list of exchange rates
+     * @returns {Promise<HttpResponse<ExchangeRate[]>>} A list of exchange rates
      *
      * @example
      * // => {
@@ -116,11 +116,11 @@ class ForexClient extends HttpClient {
 
     /**
      * Fetches the exchange rate between two currencies
-     * @param {string | undefined} [baseCode=this.options.baseCurrency] - The base currency code
-     * @param {string} destCode - The destination currency code
+     * @param {string | undefined} [baseCode=this.options.baseCurrency] - The base currency code or locale code
+     * @param {string} destCode - The destination currency code or locale code
      * @param {Date | "latest"} [date="latest"] - The date for the rate, or `'latest'` for the most recent
      * @param {RequestInit} [options={}] - Additional request options
-     * @returns The exchange rate
+     * @returns {Promise<HttpResponse<number>>} The exchange rate
      *
      * @example
      * // => {
@@ -149,9 +149,9 @@ class ForexClient extends HttpClient {
     }
 
     /**
-     * Gets a valid currency code based on locale
+     * Get a valid currency code based on locale
      * @param {string} localeCode - The locale code to get currency code for
-     * @returns The corresponding currency code
+     * @returns {string} The corresponding currency code
      *
      * @example
      * // => 'USD'
@@ -165,18 +165,18 @@ class ForexClient extends HttpClient {
      * // => 'CNY'
      * new ForexClient().getCode('RMB');
      */
-    getCode(localeCode: string) {
+    getCode(localeCode: string): string {
         return this.validCurrencyCode(localeCode, 'locale');
     }
 
     /**
      * Converts an amount from one currency to another
-     * @param {string | undefined} [baseCode=this.options.baseCurrency] - The base currency code
-     * @param {string} destCode - The destination currency code
+     * @param {string | undefined} [baseCode=this.options.baseCurrency] - The base currency code or locale code
+     * @param {string} destCode - The destination currency code or locale code
      * @param {number} [amount=0] - The amount to convert
      * @param {Date | "latest"} [date="latest"] - The date for the conversion rate, or `'latest'` for the most recent
      * @param {RequestInit} [options={}] - Additional request options
-     * @returns The converted amount
+     * @returns {Promise<HttpResponse<number>>} The converted amount
      *
      * @example
      * // => {
