@@ -182,16 +182,58 @@
 <pre><code class="bash"><span class="hl-0">pnpm</span><span class="hl-1"> </span><span class="hl-2">add</span><span class="hl-1"> </span><span class="hl-2">@kabeep/forex</span>
 </code><button type="button">Copy</button></pre>
 
-<a id="md:🚀-使用" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🚀 使用<a href="#md:🚀-使用" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>CommonJS</p>
-<pre><code class="javascript"><span class="hl-3">const</span><span class="hl-1"> { </span><span class="hl-4">ForexClient</span><span class="hl-1"> } = </span><span class="hl-0">require</span><span class="hl-1">(</span><span class="hl-2">'@kabeep/forex'</span><span class="hl-1">);</span>
+<a id="md:🚀-使用" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🚀 使用<a href="#md:🚀-使用" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p><strong>CommonJS</strong></p>
+<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> { </span><span class="hl-4">ForexClient</span><span class="hl-1">, </span><span class="hl-4">ForexClientOptions</span><span class="hl-1"> } = </span><span class="hl-0">require</span><span class="hl-1">(</span><span class="hl-2">'@kabeep/forex'</span><span class="hl-1">);</span><br><br><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">Clinet</span><span class="hl-1">({} </span><span class="hl-5">as</span><span class="hl-1"> </span><span class="hl-6">ForexClientOptions</span><span class="hl-1">);</span>
 </code><button type="button">Copy</button></pre>
 
-<p>ESModule</p>
-<pre><code class="javascript"><span class="hl-5">import</span><span class="hl-1"> { </span><span class="hl-6">ForexClient</span><span class="hl-1"> } </span><span class="hl-5">from</span><span class="hl-1"> </span><span class="hl-2">'@kabeep/forex'</span><span class="hl-1">;</span>
+<p><strong>ESModule</strong></p>
+<pre><code class="typescript"><span class="hl-5">import</span><span class="hl-1"> { </span><span class="hl-7">ForexClient</span><span class="hl-1">, </span><span class="hl-5">type</span><span class="hl-1"> </span><span class="hl-7">ForexClientOptions</span><span class="hl-1"> } </span><span class="hl-5">from</span><span class="hl-1"> </span><span class="hl-2">'@kabeep/forex'</span><span class="hl-1">;</span><br><br><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">Clinet</span><span class="hl-1">({} </span><span class="hl-5">as</span><span class="hl-1"> </span><span class="hl-6">ForexClientOptions</span><span class="hl-1">);</span>
 </code><button type="button">Copy</button></pre>
 
+<p><strong>接口 <code>ForexClientOptions</code>:</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th style="text-align:center">可选</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>baseCurrency</code></td>
+<td><code>string</code></td>
+<td style="text-align:center">true</td>
+<td>-</td>
+<td>基准货币代码</td>
+</tr>
+<tr>
+<td><code>minified</code></td>
+<td><code>boolean</code></td>
+<td style="text-align:center">true</td>
+<td><code>true</code></td>
+<td>请求压缩过的 JSON 数据</td>
+</tr>
+<tr>
+<td><code>timeout</code></td>
+<td><code>number</code></td>
+<td style="text-align:center">true</td>
+<td><code>5000</code></td>
+<td>请求超时时间 (毫秒)</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td><code>HeadersInit</code></td>
+<td style="text-align:center">true</td>
+<td><code>{}</code></td>
+<td>请求头</td>
+</tr>
+</tbody>
+</table>
 <a id="md:函数-getcurrenciesdate-options" class="tsd-anchor"></a><h4 class="tsd-anchor-link">函数: <code>getCurrencies(date, options)</code><a href="#md:函数-getcurrenciesdate-options" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>获取可用的货币列表。</p>
-<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-7">// =&gt; {</span><br><span class="hl-7">//    code: 200,</span><br><span class="hl-7">//    message: 'OK',</span><br><span class="hl-7">//    data: [</span><br><span class="hl-7">//        { code: 'eur', name: 'Euro' },</span><br><span class="hl-7">//        { code: 'usd', name: 'US Dollar' },</span><br><span class="hl-7">//        { code: 'cny', name: 'Chinese Yuan Renminbi' },</span><br><span class="hl-7">//        { code: 'btc', name: 'Bitcoin', }</span><br><span class="hl-7">//        ... More items</span><br><span class="hl-7">//    ]</span><br><span class="hl-7">// }</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getCurrencies</span><span class="hl-1">(</span><span class="hl-2">'latest'</span><span class="hl-1">);</span><br><br><span class="hl-7">// or</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getCurrencies</span><span class="hl-1">(</span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">Date</span><span class="hl-1">(</span><span class="hl-8">2024</span><span class="hl-1">, </span><span class="hl-8">11</span><span class="hl-1">, </span><span class="hl-8">1</span><span class="hl-1">));</span>
+<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-8">// =&gt; {</span><br><span class="hl-8">//    code: 200,</span><br><span class="hl-8">//    message: 'OK',</span><br><span class="hl-8">//    data: [</span><br><span class="hl-8">//        { code: 'eur', name: 'Euro' },</span><br><span class="hl-8">//        { code: 'usd', name: 'US Dollar' },</span><br><span class="hl-8">//        { code: 'cny', name: 'Chinese Yuan Renminbi' },</span><br><span class="hl-8">//        { code: 'btc', name: 'Bitcoin', }</span><br><span class="hl-8">//        ... More items</span><br><span class="hl-8">//    ]</span><br><span class="hl-8">// }</span><br><span class="hl-7">client</span><span class="hl-1">.</span><span class="hl-0">getCurrencies</span><span class="hl-1">(</span><span class="hl-2">'latest'</span><span class="hl-1">);</span><br><br><span class="hl-8">// or</span><br><span class="hl-7">client</span><span class="hl-1">.</span><span class="hl-0">getCurrencies</span><span class="hl-1">(</span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">Date</span><span class="hl-1">(</span><span class="hl-9">2024</span><span class="hl-1">, </span><span class="hl-9">11</span><span class="hl-1">, </span><span class="hl-9">1</span><span class="hl-1">));</span>
 </code><button type="button">Copy</button></pre>
 
 <table>
@@ -221,7 +263,7 @@
 </tr>
 </tbody>
 </table>
-<a id="md:返回-promise" class="tsd-anchor"></a><h4 class="tsd-anchor-link">返回: <code>Promise&lt;HttpResponse&lt;AvailableCurrency[]&gt;&gt;</code><a href="#md:返回-promise" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p><strong>结果对象:</strong></p>
+<p><strong>返回: <code>Promise&lt;HttpResponse&lt;AvailableCurrency[]&gt;&gt;</code></strong></p>
 <table>
 <thead>
 <tr>
@@ -252,7 +294,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>接口 AvailableCurrency:</strong></p>
+<p><strong>接口: <code>AvailableCurrency</code></strong></p>
 <table>
 <thead>
 <tr>
@@ -279,7 +321,7 @@
 </table>
 <hr>
 <a id="md:函数-getratescode-date-options" class="tsd-anchor"></a><h4 class="tsd-anchor-link">函数: <code>getRates(code, date, options)</code><a href="#md:函数-getratescode-date-options" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>获取指定货币的汇率。</p>
-<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-7">// =&gt; {</span><br><span class="hl-7">//    code: 200,</span><br><span class="hl-7">//    message: 'OK',</span><br><span class="hl-7">//    data: [</span><br><span class="hl-7">//        { code: 'eur', rate: 100_000 },</span><br><span class="hl-7">//        { code: 'usd', rate: 100_000 },</span><br><span class="hl-7">//        { code: 'cny', rate: 100_000 },</span><br><span class="hl-7">//        ... More items</span><br><span class="hl-7">//    ]</span><br><span class="hl-7">// }</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getRates</span><span class="hl-1">(</span><span class="hl-2">'USD'</span><span class="hl-1">);</span><br><br><span class="hl-7">// or</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getRates</span><span class="hl-1">(</span><span class="hl-2">'US'</span><span class="hl-1">);</span>
+<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-8">// =&gt; {</span><br><span class="hl-8">//    code: 200,</span><br><span class="hl-8">//    message: 'OK',</span><br><span class="hl-8">//    data: [</span><br><span class="hl-8">//        { code: 'eur', rate: 100_000 },</span><br><span class="hl-8">//        { code: 'usd', rate: 100_000 },</span><br><span class="hl-8">//        { code: 'cny', rate: 100_000 },</span><br><span class="hl-8">//        ... More items</span><br><span class="hl-8">//    ]</span><br><span class="hl-8">// }</span><br><span class="hl-7">client</span><span class="hl-1">.</span><span class="hl-0">getRates</span><span class="hl-1">(</span><span class="hl-2">'USD'</span><span class="hl-1">);</span><br><br><span class="hl-8">// or</span><br><span class="hl-7">client</span><span class="hl-1">.</span><span class="hl-0">getRates</span><span class="hl-1">(</span><span class="hl-2">'US'</span><span class="hl-1">);</span>
 </code><button type="button">Copy</button></pre>
 
 <table>
@@ -316,7 +358,7 @@
 </tr>
 </tbody>
 </table>
-<a id="md:返回-promise-1" class="tsd-anchor"></a><h4 class="tsd-anchor-link">返回: <code>Promise&lt;HttpResponse&lt;ExchangeRate[]&gt;&gt;</code><a href="#md:返回-promise-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p><strong>结果对象:</strong></p>
+<p><strong>返回: <code>Promise&lt;HttpResponse&lt;ExchangeRate[]&gt;&gt;</code></strong></p>
 <table>
 <thead>
 <tr>
@@ -347,7 +389,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>接口 ExchangeRate:</strong></p>
+<p><strong>接口: <code>ExchangeRate</code></strong></p>
 <table>
 <thead>
 <tr>
@@ -374,7 +416,7 @@
 </table>
 <hr>
 <a id="md:函数-getratebasecode-destcode-date-options" class="tsd-anchor"></a><h4 class="tsd-anchor-link">函数: <code>getRate(baseCode, destCode, date, options)</code><a href="#md:函数-getratebasecode-destcode-date-options" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>获取两种货币之间的汇率。</p>
-<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-7">// =&gt; {</span><br><span class="hl-7">//    code: 200,</span><br><span class="hl-7">//    message: 'OK',</span><br><span class="hl-7">//    data: 0.94759027</span><br><span class="hl-7">// }</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getRate</span><span class="hl-1">(</span><span class="hl-2">'USD'</span><span class="hl-1">, </span><span class="hl-2">'EUR'</span><span class="hl-1">);</span><br><br><span class="hl-7">// =&gt; {</span><br><span class="hl-7">//    code: 200,</span><br><span class="hl-7">//    message: 'OK',</span><br><span class="hl-7">//    data: 7.78004385</span><br><span class="hl-7">// }</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getRate</span><span class="hl-1">(</span><span class="hl-2">'US'</span><span class="hl-1">, </span><span class="hl-2">'HK'</span><span class="hl-1">);</span>
+<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-8">// =&gt; {</span><br><span class="hl-8">//    code: 200,</span><br><span class="hl-8">//    message: 'OK',</span><br><span class="hl-8">//    data: 0.94759027</span><br><span class="hl-8">// }</span><br><span class="hl-7">client</span><span class="hl-1">.</span><span class="hl-0">getRate</span><span class="hl-1">(</span><span class="hl-2">'USD'</span><span class="hl-1">, </span><span class="hl-2">'EUR'</span><span class="hl-1">);</span><br><br><span class="hl-8">// =&gt; {</span><br><span class="hl-8">//    code: 200,</span><br><span class="hl-8">//    message: 'OK',</span><br><span class="hl-8">//    data: 7.78004385</span><br><span class="hl-8">// }</span><br><span class="hl-7">client</span><span class="hl-1">.</span><span class="hl-0">getRate</span><span class="hl-1">(</span><span class="hl-2">'US'</span><span class="hl-1">, </span><span class="hl-2">'HK'</span><span class="hl-1">);</span>
 </code><button type="button">Copy</button></pre>
 
 <table>
@@ -418,7 +460,7 @@
 </tr>
 </tbody>
 </table>
-<a id="md:返回-promise-2" class="tsd-anchor"></a><h4 class="tsd-anchor-link">返回: <code>Promise&lt;HttpResponse&lt;number&gt;&gt;</code><a href="#md:返回-promise-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p><strong>结果对象:</strong></p>
+<p><strong>返回: <code>Promise&lt;HttpResponse&lt;number&gt;&gt;</code></strong></p>
 <table>
 <thead>
 <tr>
@@ -451,7 +493,7 @@
 </table>
 <hr>
 <a id="md:函数-getcodelocalecode" class="tsd-anchor"></a><h4 class="tsd-anchor-link">函数: <code>getCode(localeCode)</code><a href="#md:函数-getcodelocalecode" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>根据 ISO 3166-1 代码获取有效的货币代码。</p>
-<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-7">// =&gt; 'USD'</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getCode</span><span class="hl-1">(</span><span class="hl-2">'US'</span><span class="hl-1">);</span><br><br><span class="hl-7">// =&gt; 'CNH'</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getCode</span><span class="hl-1">(</span><span class="hl-2">'HK'</span><span class="hl-1">);</span><br><br><span class="hl-7">// =&gt; 'CNY'</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">getCode</span><span class="hl-1">(</span><span class="hl-2">'RMB'</span><span class="hl-1">);</span>
+<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-8">// =&gt; 'USD'</span><br><span class="hl-7">client</span><span class="hl-1">.</span><span class="hl-0">getCode</span><span class="hl-1">(</span><span class="hl-2">'US'</span><span class="hl-1">);</span><br><br><span class="hl-8">// =&gt; 'CNH'</span><br><span class="hl-7">client</span><span class="hl-1">.</span><span class="hl-0">getCode</span><span class="hl-1">(</span><span class="hl-2">'HK'</span><span class="hl-1">);</span><br><br><span class="hl-8">// =&gt; 'CNY'</span><br><span class="hl-7">client</span><span class="hl-1">.</span><span class="hl-0">getCode</span><span class="hl-1">(</span><span class="hl-2">'RMB'</span><span class="hl-1">);</span>
 </code><button type="button">Copy</button></pre>
 
 <table>
@@ -474,10 +516,11 @@
 </tr>
 </tbody>
 </table>
-<a id="md:返回-string" class="tsd-anchor"></a><h4 class="tsd-anchor-link">返回: <code>string</code><a href="#md:返回-string" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>对应的货币代码。</p>
+<p><strong>返回: <code>string</code></strong></p>
+<p>对应的货币代码。</p>
 <hr>
 <a id="md:函数-convertbasecode-destcode-amount-date-options" class="tsd-anchor"></a><h4 class="tsd-anchor-link">函数: <code>convert(baseCode, destCode, amount, date, options)</code><a href="#md:函数-convertbasecode-destcode-amount-date-options" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>将金额从一种货币转换为另一种货币。</p>
-<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-7">// =&gt; {</span><br><span class="hl-7">//    code: 200,</span><br><span class="hl-7">//    message: 'OK',</span><br><span class="hl-7">//    data: 9.48</span><br><span class="hl-7">// }</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">convert</span><span class="hl-1">(</span><span class="hl-2">'USD'</span><span class="hl-1">, </span><span class="hl-2">'EUR'</span><span class="hl-1">, </span><span class="hl-8">10</span><span class="hl-1">);</span><br><br><span class="hl-7">// =&gt; {</span><br><span class="hl-7">//    code: 200,</span><br><span class="hl-7">//    message: 'OK',</span><br><span class="hl-7">//    data: 72.67</span><br><span class="hl-7">// }</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">convert</span><span class="hl-1">(</span><span class="hl-2">'US'</span><span class="hl-1">, </span><span class="hl-2">'HK'</span><span class="hl-1">, </span><span class="hl-8">10</span><span class="hl-1">);</span>
+<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-8">// =&gt; {</span><br><span class="hl-8">//    code: 200,</span><br><span class="hl-8">//    message: 'OK',</span><br><span class="hl-8">//    data: 9.48</span><br><span class="hl-8">// }</span><br><span class="hl-7">client</span><span class="hl-1">.</span><span class="hl-0">convert</span><span class="hl-1">(</span><span class="hl-2">'USD'</span><span class="hl-1">, </span><span class="hl-2">'EUR'</span><span class="hl-1">, </span><span class="hl-9">10</span><span class="hl-1">);</span><br><br><span class="hl-8">// =&gt; {</span><br><span class="hl-8">//    code: 200,</span><br><span class="hl-8">//    message: 'OK',</span><br><span class="hl-8">//    data: 72.67</span><br><span class="hl-8">// }</span><br><span class="hl-7">client</span><span class="hl-1">.</span><span class="hl-0">convert</span><span class="hl-1">(</span><span class="hl-2">'US'</span><span class="hl-1">, </span><span class="hl-2">'HK'</span><span class="hl-1">, </span><span class="hl-9">10</span><span class="hl-1">);</span>
 </code><button type="button">Copy</button></pre>
 
 <table>
@@ -528,7 +571,7 @@
 </tr>
 </tbody>
 </table>
-<a id="md:返回-promise-3" class="tsd-anchor"></a><h4 class="tsd-anchor-link">返回: <code>Promise&lt;HttpResponse&lt;number&gt;&gt;</code><a href="#md:返回-promise-3" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p><strong>结果对象:</strong></p>
+<p><strong>返回: <code>Promise&lt;HttpResponse&lt;number&gt;&gt;</code></strong></p>
 <table>
 <thead>
 <tr>
@@ -567,7 +610,7 @@
 </ul>
 <a id="md:🤝-贡献" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🤝 贡献<a href="#md:🤝-贡献" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>欢迎通过 Pull Requests 或 <a href="https://github.com/kabeep/forex/issues" target="_blank" class="external">Issues</a> 来贡献你的想法和代码。</p>
 <a id="md:📄-许可" class="tsd-anchor"></a><h2 class="tsd-anchor-link">📄 许可<a href="#md:📄-许可" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>本项目采用 MIT 许可证。详情请见 <a href="LICENSE">LICENSE</a> 文件。</p>
-</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked=""><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open="" class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#md:📖-简介"><span>📖 简介</span></a><a href="#md:⚙️-安装"><span>⚙️ 安装</span></a><a href="#md:🚀-使用"><span>🚀 使用</span></a><ul><li><ul><li><a href="#md:函数-getcurrenciesdate-options"><span>函数: get<wbr>Currencies(date, options)</span></a></li><li><a href="#md:返回-promise"><span>返回: <wbr>Promise&lt;<wbr>Http<wbr>Response&lt;<wbr>Available<wbr>Currency[]&gt;&gt;</span></a></li><li><a href="#md:函数-getratescode-date-options"><span>函数: get<wbr>Rates(code, date, options)</span></a></li><li><a href="#md:返回-promise-1"><span>返回: <wbr>Promise&lt;<wbr>Http<wbr>Response&lt;<wbr>Exchange<wbr>Rate[]&gt;&gt;</span></a></li><li><a href="#md:函数-getratebasecode-destcode-date-options"><span>函数: get<wbr>Rate(base<wbr>Code, dest<wbr>Code, date, options)</span></a></li><li><a href="#md:返回-promise-2"><span>返回: <wbr>Promise&lt;<wbr>Http<wbr>Response&lt;number&gt;&gt;</span></a></li><li><a href="#md:函数-getcodelocalecode"><span>函数: get<wbr>Code(locale<wbr>Code)</span></a></li><li><a href="#md:返回-string"><span>返回: string</span></a></li><li><a href="#md:函数-convertbasecode-destcode-amount-date-options"><span>函数: convert(base<wbr>Code, dest<wbr>Code, amount, date, options)</span></a></li><li><a href="#md:返回-promise-3"><span>返回: <wbr>Promise&lt;<wbr>Http<wbr>Response&lt;number&gt;&gt;</span></a></li></ul></li></ul><a href="#md:🏅-致谢"><span>🏅 致谢</span></a><a href="#md:🔗-关联库"><span>🔗 关联库</span></a><a href="#md:🤝-贡献"><span>🤝 贡献</span></a><a href="#md:📄-许可"><span>📄 许可</span></a></div></details></div><div class="site-menu"><nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://kabeep.github.io/forex/documents/demo.html" class="tsd-nav-link">Demo</a><a href="https://kabeep.github.io/forex/" class="tsd-nav-link">Docs</a><a href="https://github.com/kabeep/forex" class="tsd-nav-link">GitHub</a><a href="https://www.npmjs.com/package/@kabeep/forex" class="tsd-nav-link">NPM</a></nav><nav class="tsd-navigation"><a href="../modules.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-1"></use></svg><span>@kabeep/forex</span></a><ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base=".."><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div><script>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked=""><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open="" class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#md:📖-简介"><span>📖 简介</span></a><a href="#md:⚙️-安装"><span>⚙️ 安装</span></a><a href="#md:🚀-使用"><span>🚀 使用</span></a><ul><li><ul><li><a href="#md:函数-getcurrenciesdate-options"><span>函数: get<wbr>Currencies(date, options)</span></a></li><li><a href="#md:函数-getratescode-date-options"><span>函数: get<wbr>Rates(code, date, options)</span></a></li><li><a href="#md:函数-getratebasecode-destcode-date-options"><span>函数: get<wbr>Rate(base<wbr>Code, dest<wbr>Code, date, options)</span></a></li><li><a href="#md:函数-getcodelocalecode"><span>函数: get<wbr>Code(locale<wbr>Code)</span></a></li><li><a href="#md:函数-convertbasecode-destcode-amount-date-options"><span>函数: convert(base<wbr>Code, dest<wbr>Code, amount, date, options)</span></a></li></ul></li></ul><a href="#md:🏅-致谢"><span>🏅 致谢</span></a><a href="#md:🔗-关联库"><span>🔗 关联库</span></a><a href="#md:🤝-贡献"><span>🤝 贡献</span></a><a href="#md:📄-许可"><span>📄 许可</span></a></div></details></div><div class="site-menu"><nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://kabeep.github.io/forex/documents/demo.html" class="tsd-nav-link">Demo</a><a href="https://kabeep.github.io/forex/" class="tsd-nav-link">Docs</a><a href="https://github.com/kabeep/forex" class="tsd-nav-link">GitHub</a><a href="https://www.npmjs.com/package/@kabeep/forex" class="tsd-nav-link">NPM</a></nav><nav class="tsd-navigation"><a href="../modules.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-1"></use></svg><span>@kabeep/forex</span></a><ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base=".."><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div><script>
           try {
             const generateLinkElement = document.querySelector(".tsd-generator a");
             const link = document.createElement("a");
