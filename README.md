@@ -215,6 +215,8 @@ client.getCode('RMB');
 
 The corresponding currency code.
 
+---
+
 #### Methods: `convert(baseCode, destCode, amount, date, options)`
 
 Converts an amount from one currency to another.
@@ -253,8 +255,6 @@ client.convert('US', 'HK', 10);
 | `code`    | `number` |   true   | HTTP response status codes    |
 | `message` | `string` |   true   | HTTP response status messages |
 | `data`    | `number` |  false   | The converted amount          |
-
----
 
 ## 🏅 Credits
 

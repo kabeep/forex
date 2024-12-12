@@ -211,6 +211,8 @@ client.getCode('RMB');
 
 对应的货币代码。
 
+---
+
 #### 函数: `convert(baseCode, destCode, amount, date, options)`
 
 将金额从一种货币转换为另一种货币。
@@ -249,8 +251,6 @@ client.convert('US', 'HK', 10);
 | `code`    | `number` | true  | HTTP 响应状态代码 |
 | `message` | `string` | true  | HTTP 响应状态消息 |
 | `data`    | `number` | false | 兑换金额        |
-
----
 
 ## 🏅 致谢
 
