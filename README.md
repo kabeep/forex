@@ -43,17 +43,30 @@ pnpm add @kabeep/forex
 
 ## 🚀 Usage
 
-#### CommonJS
+**CommonJS**
 
-```javascript
-const { ForexClient } = require('@kabeep/forex');
+```typescript
+const { ForexClient, ForexClientOptions } = require('@kabeep/forex');
+
+const client = new Clinet({} as ForexClientOptions);
 ```
 
-#### ESModule
+**ESModule**
 
-```javascript
-import { ForexClient } from '@kabeep/forex';
+```typescript
+import { ForexClient, type ForexClientOptions } from '@kabeep/forex';
+
+const client = new Clinet({} as ForexClientOptions);
 ```
+
+**Interface `ForexClientOptions`:**
+
+| Parameter      | Type          | Optional | Default | Description                    |
+|----------------|---------------|:--------:|---------|--------------------------------|
+| `baseCurrency` | `string`      |   true   | -       | The base currency code         |
+| `minified`     | `boolean`     |   true   | `true`  | Minified JSON format           |
+| `timeout`      | `number`      |   true   | `5000`  | Request timeout (milliseconds) |
+| `headers`      | `HeadersInit` |   true   | `{}`    | Request header                 |
 
 ---
 
@@ -85,9 +98,7 @@ client.getCurrencies(new Date(2024, 11, 1));
 | `date`    | `Date` \| `"latest"` |   true   | `"latest"` | The date for fetching currencies, or `"latest"` for the most recent |
 | `options` | `RequestInit`        |   true   | `{}`       | Additional request options                                          |
 
-#### Returns: `Promise<HttpResponse<AvailableCurrency[]>>`
-
-**Result Object:**
+**Returns: `Promise<HttpResponse<AvailableCurrency[]>>`**
 
 | Key       | Type                  | Required | Description                   |
 |-----------|-----------------------|:--------:|-------------------------------|
@@ -95,7 +106,7 @@ client.getCurrencies(new Date(2024, 11, 1));
 | `message` | `string`              |   true   | HTTP response status messages |
 | `data`    | `AvailableCurrency[]` |  false   | List of available currency    |
 
-**interface AvailableCurrency:**
+**Interface: `AvailableCurrency`**
 
 | Key    | Type     | Required | Description      |
 |--------|----------|:--------:|------------------|
@@ -132,9 +143,7 @@ client.getRates('US');
 | `date`    | `Date` \| `"latest"` |   true   | `"latest"`                  | The date for fetching currencies, or `"latest"` for the most recent |
 | `options` | `RequestInit`        |   true   | `{}`                        | Additional request options                                          |
 
-#### Returns: `Promise<HttpResponse<ExchangeRate[]>>`
-
-**Result Object:**
+**Returns: `Promise<HttpResponse<ExchangeRate[]>>`**
 
 | Key       | Type             | Required | Description                   |
 |-----------|------------------|:--------:|-------------------------------|
@@ -142,7 +151,7 @@ client.getRates('US');
 | `message` | `string`         |   true   | HTTP response status messages |
 | `data`    | `ExchangeRate[]` |  false   | List of exchange rates        |
 
-**interface ExchangeRate:**
+**Interface: `ExchangeRate`**
 
 | Key    | Type     | Required | Description      |
 |--------|----------|:--------:|------------------|
@@ -179,9 +188,7 @@ client.getRate('US', 'HK');
 | `date`     | `Date` \| `"latest"` |   true   | `"latest"`                  | The date for fetching currencies, or `"latest"` for the most recent |
 | `options`  | `RequestInit`        |   true   | `{}`                        | Additional request options                                          |
 
-#### Returns: `Promise<HttpResponse<number>>`
-
-**Result Object:**
+**Returns: `Promise<HttpResponse<number>>`**
 
 | Key       | Type     | Required | Description                   |
 |-----------|----------|:--------:|-------------------------------|
@@ -211,7 +218,7 @@ client.getCode('RMB');
 |--------------|----------|:--------:|---------|------------------------------------------|
 | `localeCode` | `string` |  false   | -       | The locale code to get currency code for |
 
-#### Returns: `string`
+**Returns: `string`**
 
 The corresponding currency code.
 
@@ -246,9 +253,7 @@ client.convert('US', 'HK', 10);
 | `date`     | `Date` \| `"latest"` |   true   | `"latest"`                  | The date for fetching currencies, or `"latest"` for the most recent |
 | `options`  | `RequestInit`        |   true   | `{}`                        | Additional request options                                          |
 
-#### Returns: `Promise<HttpResponse<number>>`
-
-**Result Object:**
+**Returns: `Promise<HttpResponse<number>>`**
 
 | Key       | Type     | Required | Description                   |
 |-----------|----------|:--------:|-------------------------------|

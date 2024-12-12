@@ -41,17 +41,30 @@ pnpm add @kabeep/forex
 
 ## 🚀 使用
 
-CommonJS
+**CommonJS**
 
-```javascript
-const { ForexClient } = require('@kabeep/forex');
+```typescript
+const { ForexClient, ForexClientOptions } = require('@kabeep/forex');
+
+const client = new Clinet({} as ForexClientOptions);
 ```
 
-ESModule
+**ESModule**
 
-```javascript
-import { ForexClient } from '@kabeep/forex';
+```typescript
+import { ForexClient, type ForexClientOptions } from '@kabeep/forex';
+
+const client = new Clinet({} as ForexClientOptions);
 ```
+
+**接口 `ForexClientOptions`:**
+
+| 参数             | 类型            |  可选  | 默认值    | 描述             |
+|----------------|---------------|:----:|--------|----------------|
+| `baseCurrency` | `string`      | true | -      | 基准货币代码         |
+| `minified`     | `boolean`     | true | `true` | 请求压缩过的 JSON 数据 |
+| `timeout`      | `number`      | true | `5000` | 请求超时时间 (毫秒)    |
+| `headers`      | `HeadersInit` | true | `{}`   | 请求头            |
 
 #### 函数: `getCurrencies(date, options)`
 
@@ -81,9 +94,7 @@ client.getCurrencies(new Date(2024, 11, 1));
 | `date`    | `Date` \| `"latest"` | true | `"latest"` | 获取货币的日期，或最新的 'latest' |
 | `options` | `RequestInit`        | true | `{}`       | 自定义请求参数               |
 
-#### 返回: `Promise<HttpResponse<AvailableCurrency[]>>`
-
-**结果对象:**
+**返回: `Promise<HttpResponse<AvailableCurrency[]>>`**
 
 | 属性        | 类型                    |  必选   | 描述          |
 |-----------|-----------------------|:-----:|-------------|
@@ -91,7 +102,7 @@ client.getCurrencies(new Date(2024, 11, 1));
 | `message` | `string`              | true  | HTTP 响应状态消息 |
 | `data`    | `AvailableCurrency[]` | false | 可用货币列表      |
 
-**接口 AvailableCurrency:**
+**接口: `AvailableCurrency`**
 
 | 属性     | 类型       |  必选   | 描述   |
 |--------|----------|:-----:|------|
@@ -128,9 +139,7 @@ client.getRates('US');
 | `date`    | `Date` \| `"latest"` | true | `"latest"`                  | 获取货币的日期，或最新的 'latest' |
 | `options` | `RequestInit`        | true | `{}`                        | 	自定义请求参数              |
 
-#### 返回: `Promise<HttpResponse<ExchangeRate[]>>`
-
-**结果对象:**
+**返回: `Promise<HttpResponse<ExchangeRate[]>>`**
 
 | 属性        | 类型               |  必选   | 描述          |
 |-----------|------------------|:-----:|-------------|
@@ -138,7 +147,7 @@ client.getRates('US');
 | `message` | `string`         | true  | HTTP 响应状态消息 |
 | `data`    | `ExchangeRate[]` | false | 汇率列表        |
 
-**接口 ExchangeRate:**
+**接口: `ExchangeRate`**
 
 | 属性     | 类型       |  必选   | 描述   |
 |--------|----------|:-----:|------|
@@ -175,9 +184,7 @@ client.getRate('US', 'HK');
 | `date`     | `Date` \| `"latest"` | true | `"latest"`                  | 获取货币的日期，或最新的 'latest' |
 | `options`  | `RequestInit`        | true | `{}`                        | 自定义请求参数               |
 
-#### 返回: `Promise<HttpResponse<number>>`
-
-**结果对象:**
+**返回: `Promise<HttpResponse<number>>`**
 
 | 属性        | 类型       |  必选   | 描述          |
 |-----------|----------|:-----:|-------------|
@@ -207,7 +214,7 @@ client.getCode('RMB');
 |--------------|----------|:-----:|-----|---------------------------|
 | `localeCode` | `string` | false | -   | `用于获取货币代码的 ISO 3166-1 代码` |
 
-#### 返回: `string`
+**返回: `string`**
 
 对应的货币代码。
 
@@ -242,9 +249,7 @@ client.convert('US', 'HK', 10);
 | `date`     | `Date` \| `"latest"` | true | `"latest"`                  | 获取货币的日期，或最新的 'latest' |
 | `options`  | `RequestInit`        | true | `{}`                        | 	自定义请求参数              |
 
-#### 返回: `Promise<HttpResponse<number>>`
-
-**结果对象:**
+**返回: `Promise<HttpResponse<number>>`**
 
 | 属性        | 类型       |  必选   | 描述          |
 |-----------|----------|:-----:|-------------|
