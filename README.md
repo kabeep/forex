@@ -48,7 +48,7 @@ pnpm add @kabeep/forex
 ```typescript
 const { ForexClient, ForexClientOptions } = require('@kabeep/forex');
 
-const client = new Clinet({} as ForexClientOptions);
+const client = new ForexClinet({} as ForexClientOptions);
 ```
 
 **ESModule**
@@ -56,7 +56,7 @@ const client = new Clinet({} as ForexClientOptions);
 ```typescript
 import { ForexClient, type ForexClientOptions } from '@kabeep/forex';
 
-const client = new Clinet({} as ForexClientOptions);
+const client = new ForexClinet({} as ForexClientOptions);
 ```
 
 **Interface `ForexClientOptions`:**
