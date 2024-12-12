@@ -475,6 +475,7 @@
 </tbody>
 </table>
 <a id="md:返回-string" class="tsd-anchor"></a><h4 class="tsd-anchor-link">返回: <code>string</code><a href="#md:返回-string" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>对应的货币代码。</p>
+<hr>
 <a id="md:函数-convertbasecode-destcode-amount-date-options" class="tsd-anchor"></a><h4 class="tsd-anchor-link">函数: <code>convert(baseCode, destCode, amount, date, options)</code><a href="#md:函数-convertbasecode-destcode-amount-date-options" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>将金额从一种货币转换为另一种货币。</p>
 <pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1"> = </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-0">ForexClient</span><span class="hl-1">();</span><br><span class="hl-7">// =&gt; {</span><br><span class="hl-7">//    code: 200,</span><br><span class="hl-7">//    message: 'OK',</span><br><span class="hl-7">//    data: 9.48</span><br><span class="hl-7">// }</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">convert</span><span class="hl-1">(</span><span class="hl-2">'USD'</span><span class="hl-1">, </span><span class="hl-2">'EUR'</span><span class="hl-1">, </span><span class="hl-8">10</span><span class="hl-1">);</span><br><br><span class="hl-7">// =&gt; {</span><br><span class="hl-7">//    code: 200,</span><br><span class="hl-7">//    message: 'OK',</span><br><span class="hl-7">//    data: 72.67</span><br><span class="hl-7">// }</span><br><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-0">convert</span><span class="hl-1">(</span><span class="hl-2">'US'</span><span class="hl-1">, </span><span class="hl-2">'HK'</span><span class="hl-1">, </span><span class="hl-8">10</span><span class="hl-1">);</span>
 </code><button type="button">Copy</button></pre>
@@ -558,7 +559,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <a id="md:🏅-致谢" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🏅 致谢<a href="#md:🏅-致谢" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><ul>
 <li><a href="https://github.com/fawazahmed0/exchange-api" target="_blank" class="external">exchange-api</a> - 如果没有这个，这个包就不会存在。</li>
 </ul>
