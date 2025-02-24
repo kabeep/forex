@@ -52,7 +52,7 @@
         "@size-limit/time": "^11.1.6",
         "@types/node": "^22.10.1",
         "@vitest/coverage-istanbul": "^2.1.6",
-        "@vitest/ui": "^2.1.6",
+        "@vitest/ui": "^3.0.6",
         "cloc": "^2.2.0-cloc",
         "husky": "^9.1.7",
         "lint-staged": "^15.2.10",
